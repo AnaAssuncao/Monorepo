@@ -1,0 +1,21 @@
+{
+  "name": "Monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "build": "lerna exec --parallel -- babel --extensions '.js,.jsx' --root-mode upward src -d lib --ignore **/*.stories.js,**/*.spec.js",
+    "start": "lerna run start"
+}
+}
