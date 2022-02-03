@@ -21,7 +21,7 @@ const CHALLENGES = gql`
 `;
 
 export default function Home() {
-  debugger
+
   const {updateChallenges} = useContext(ChallengesContext)
 
     const { loading, error, data } = useQuery(CHALLENGES);
