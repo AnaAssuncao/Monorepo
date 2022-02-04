@@ -16,7 +16,7 @@ export default function Layout (){
           <ChallengesProvider>
           <CountdownProvider> 
             <NavBar/>
-            {/* {
+            {
               <Routes>
                 {arrRoutes.map((route) => {
                   const { component: Component, path, name,exact} = route;
@@ -31,7 +31,7 @@ export default function Layout (){
                   )
                 })}
               </Routes>
-            } */}
+            }
             <Footer/>
           </ CountdownProvider> 
           </ ChallengesProvider>

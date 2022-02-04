@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages":[
+     "packages/*"
+    ],
+    "nohoist": [
+      "**/react",
+      "**/react-dom"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

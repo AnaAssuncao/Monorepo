@@ -41,11 +41,8 @@ export default function Home() {
       );
     }
   
-    useEffect(()=>{
-      updateChallenges(data.challenges)
-    },[data.challenges])
+    updateChallenges(data.challenges)
 
-  
     return (
         <El.HomeContainer>
           <ExperienceBar/>

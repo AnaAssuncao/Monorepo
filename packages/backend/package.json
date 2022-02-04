@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/server",
+  "name": "@monorepo/backend",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -10,8 +10,5 @@
   "dependencies": {
     "apollo-server": "^3.6.2",
     "graphql": "^16.3.0"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.13"
   }
 }

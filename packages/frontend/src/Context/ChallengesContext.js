@@ -1,4 +1,4 @@
-import React,{ createContext,useState,useEffect } from 'react';
+import React,{ createContext,useState,useEffect, useCallback } from 'react';
 // import Cookies from 'js-cookie'
 
 
@@ -10,7 +10,6 @@ export function ChallengesProvider({children}){
     const [currentExperience, setCurrentExperience] = useState(0)
     const [challengeCompleted, setChallengeCompleted]= useState(0)
     const [challenges,setChallenges]= useState([])
-    
     const [activeChallenge, setActiveChallenge] = useState(null)
 
     const getExperienceToNextLevel = (level) => Math.pow((level+1)*4,2)
@@ -50,7 +49,6 @@ export function ChallengesProvider({children}){
         localStorage.setItem('ChallengeCompleted', String(challengeCompleted))
     },[challengeCompleted])
 
-
     useEffect(()=>{
         Notification.requestPermission();
     },[])
@@ -63,13 +61,17 @@ export function ChallengesProvider({children}){
         setChallengeCompleted(0)
     }
 
-    function updateName(text){
-        setName(text)
-    }
+    const updateName = useCallback( (text) => {
+        setChallenges(text);
+      },
+      [name],
+    )
 
-    function updateChallenges(dataChallenges){
-        setChallenges(dataChallenges)
-    }
+    const updateChallenges = useCallback( (dataChallenges) => {
+        setChallenges(dataChallenges);
+      },
+      [challenges],
+    )
 
     function levelUp(){
         setLevel(level+1)

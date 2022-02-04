@@ -8,6 +8,7 @@ import * as El from './ChallengeBox.style'
 export default function ChallengeBox(){
     const {activeChallenge,resetChallenge,completedChallenge} = useContext(ChallengesContext)
     const {resetCountdown} = useContext(CountdownContext)
+    
     function handleChallengeSucceeded(){
         completedChallenge()
         resetCountdown()
