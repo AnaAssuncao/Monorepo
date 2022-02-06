@@ -9,9 +9,9 @@ export function ChallengesProvider({children}){
     const [level,setLevel] =useState(1)
     const [currentExperience, setCurrentExperience] = useState(0)
     const [challengeCompleted, setChallengeCompleted]= useState(0)
-    const [challenges,setChallenges]= useState([])
     const [activeChallenge, setActiveChallenge] = useState(null)
 
+    let challenges = []
     const getExperienceToNextLevel = (level) => Math.pow((level+1)*4,2)
 
     useEffect(()=>{
@@ -67,11 +67,9 @@ export function ChallengesProvider({children}){
       [name],
     )
 
-    const updateChallenges = useCallback( (dataChallenges) => {
-        setChallenges(dataChallenges);
-      },
-      [challenges],
-    )
+    const updateChallenges =  (dataChallenges) => {
+        challenges = dataChallenges
+    }
 
     function levelUp(){
         setLevel(level+1)
