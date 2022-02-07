@@ -15,7 +15,10 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         resolve: { extensions: ['.js', '.jsx'] },
-        exclude: /node_modules/,
+        exclude: [
+          /node_modules/,
+          /.stories.js/
+        ],
         use: [
           {
             loader: 'babel-loader',
@@ -28,6 +31,20 @@ module.exports = {
         loader: 'graphql-tag/loader',
       }
     ]
+  },
+  optimization: {
+    removeAvailableModules: false,
+    removeEmptyChunks: false,
+    mergeDuplicateChunks: false,
+    splitChunks: {
+      cacheGroups: {
+        sympla_ui: {
+          test: /\/monorepo-ui\/lib\/.*/,
+          name: 'monorepo-ui',
+          chunks: 'all'
+        }
+      }
+    }
   },
   plugins: [
   ]

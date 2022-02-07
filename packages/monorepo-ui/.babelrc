@@ -1,8 +1,13 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
 
-  {
-    "presets": ["@babel/preset-react"],
-    "plugins": [
-        "babel-plugin-styled-components",
-        "@babel/plugin-syntax-jsx"
-    ]
-  }
+  "plugins": [
+   
+    ["babel-plugin-styled-components",{
+      "displayName": true,
+      "ssr": false
+    }]
+
+  ]
+
+ }

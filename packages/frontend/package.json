@@ -2,18 +2,18 @@
   "name": "@monorepo/frontend",
   "version": "0.1.0",
   "private": true,
-
   "scripts": {
     "start": "yarn build-server && npm-run-all --parallel dev:*",
     "build-server": "webpack --config webpack/webpack.server.js",
     "build-client": "webpack --config webpack/webpack.client.js",
     "dev:build-server": "webpack --config webpack/webpack.server.js --watch",
     "dev:build-client": "webpack --config webpack/webpack.config.js --watch",
-    "dev:server": "node build/server/server.bundle.js"
+    "dev:server": "nodemon build/server/server.bundle.js"
   },
   "dependencies": {
     "@apollo/client": "^3.5.7",
     "@apollo/react-ssr": "^4.0.0",
+    "@monorepo/monorepo-ui": "1.0.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -30,9 +30,11 @@
   "devDependencies": {
     "@babel/cli": "^7.16.8",
     "@babel/core": "^7.16.7",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-optional-chaining": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
-    "babel-plugin-styled-components": "^2.0.2",
     "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-styled-components": "^2.0.2",
     "nodemon": "^2.0.15",
     "npm-run-all": "^4.1.5",
     "webpack": "^5.66.0",

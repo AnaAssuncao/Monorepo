@@ -8,6 +8,8 @@ export default function Avatar({
 }){
 
   return (
-    <El.Avatar src={src} width={width} alt='imagem'/>
+    <div>
+      <El.Avatar src={src} width={width} alt='imagem'/>
+    </div>
   )
 }
