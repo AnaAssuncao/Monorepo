@@ -1,0 +1,40 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "env": {
+    "development": {
+      "plugins": [
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-optional-chaining",
+        ["babel-plugin-styled-components", {
+          "displayName": true,
+          "ssr": false
+        }]
+      ]
+    },
+    "production": {
+      "plugins": [
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-optional-chaining",
+        ["babel-plugin-styled-components", {
+          "displayName": false,
+          "pure": true,
+          "ssr": false,
+          "minify": true
+        }]
+      ]
+    }
+  },
+  "plugins": [
+    [
+      "module-resolver", {
+        "root": ["."],
+        "alias": {
+          "components": "./src/components/",
+          "style": "./src/style/"
+        },
+        "cwd": "babelrc"
+    }]
+  ]
+ }

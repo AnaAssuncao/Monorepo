@@ -1,51 +1,48 @@
-const path = require('path')
+const path = require("path");
 
 module.exports = {
-  name: 'client',
+  name: "client",
   entry: {
-    index: './src/Client/client.js'
+    index: "./src/Client/client.js",
   },
   output: {
-    path: path.resolve( __dirname, '../build/client' ),
-    filename: 'client.bundle.js',
+    path: path.resolve(__dirname, "../build/client"),
+    filename: "client.bundle.js",
   },
-  mode: 'development',
+  mode: "development",
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        resolve: { extensions: ['.js', '.jsx'] },
-        exclude: [
-          /node_modules/,
-          /.stories.js/
-        ],
+        resolve: { extensions: [".js", ".jsx"] },
+        exclude: [/node_modules/, /.stories.js/],
         use: [
           {
-            loader: 'babel-loader',
-          }
-        ]
+            loader: "babel-loader",
+          },
+        ],
       },
       {
         test: /\.(graphql|gql)$/,
         exclude: /node_modules/,
-        loader: 'graphql-tag/loader',
-      }
-    ]
+        loader: "graphql-tag/loader",
+      },
+    ],
   },
-  optimization: {
-    removeAvailableModules: false,
-    removeEmptyChunks: false,
-    mergeDuplicateChunks: false,
-    splitChunks: {
-      cacheGroups: {
-        sympla_ui: {
-          test: /\/monorepo-ui\/lib\/.*/,
-          name: 'monorepo-ui',
-          chunks: 'all'
-        }
-      }
-    }
-  },
-  plugins: [
-  ]
-}
+  // optimization: {
+  //   removeAvailableModules: false,
+  //   removeEmptyChunks: false,
+  //   mergeDuplicateChunks: false,
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       sympla_ui: {
+  //         test: /\/monorepo-ui\/lib\/.*/,
+  //         name: 'monorepo-ui',
+  //         chunks: 'all'
+  //       }
+  //     }
+  //   }
+  // },
+  // plugins: [
+  // ]
+};

@@ -1,25 +1,16 @@
 import React from "react";
-import Home from '../Pages/Home/Home'
-import Activities from '../Pages/Activities/Activities'
-import List from '../Pages/List/List'
+import { Routes, Route } from "react-router-dom";
 
-export const arrRoutes = [
-  {
-    path: '/',
-    name: 'Home',
-    exact: true,
-    component: <Home />,
-  },
-  {
-    path: '/desafios',
-    name: 'Desafios',
-    exact: true,
-    component: <Activities />,
-  },
-  {
-    path: '/beneficios',
-    name: 'Benefícios',
-    exact: true,
-    component: <List />,
-  }
-]
+import Home from "pages/Home/Home";
+import Activities from "pages/Activities/Activities";
+import List from "pages/List/List";
+
+const RoutesApp = () => (
+  <Routes>
+    <Route path={"/"} component={<Home />} />
+    <Route path={"/desafios"} component={<Activities />} />
+    <Route path={"/beneficios"} component={<List />} />
+  </Routes>
+);
+
+export default RoutesApp;

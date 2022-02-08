@@ -3,7 +3,7 @@ import { ChallengesContext } from "../../Context/ChallengesContext"
 import Button from "../Button/Button"
 
 import * as El from './Footer.style'
-import {arrRoutes} from "../../Routes/Routes"
+// import {arrRoutes} from "../../Routes/Routes"
 import {
     Link
   } from "react-router-dom";
@@ -21,7 +21,7 @@ export default function Footer (){
     return(
         <El.FooterContainer>
             <El.FooterMenu>
-                {arrRoutes.map(({name,path})=>{
+                {/* {arrRoutes.map(({name,path})=>{
                     return(
                         <El.FooterItem key={name}>
                             <Link to={path}>
@@ -29,7 +29,7 @@ export default function Footer (){
                             </Link>
                         </El.FooterItem>
                     )
-                })}
+                })} */}
             </El.FooterMenu>
             <El.FooterButton>
                 <Button 

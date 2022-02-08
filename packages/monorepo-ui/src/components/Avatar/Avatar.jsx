@@ -1,15 +1,17 @@
-import React from 'react'
+import React from "react";
+// import { ThemeProvider } from "styled-components";
+// import { Theme } from "../../style/Theme.js";
+// import GlobalStyle from "../../style/Global.js";
 
-import * as El from './Avatar.style'
+import * as El from "./Avatar.style.js";
 
-export default function Avatar({
-  src,
-  width
-}){
-
+const Avatar = ({ src, width }) => {
   return (
-    <div>
-      <El.Avatar src={src} width={width} alt='imagem'/>
-    </div>
-  )
-}
+    <>
+      <El.Avatar src={src} width={width} />
+      Avatar
+    </>
+  );
+};
+
+export default Avatar;
