@@ -1,2 +1,7 @@
 node_modules
 /lib/
+/build/
+**/packages/**/build
+**/packages/**/lib
+
+**/yarn-error.log

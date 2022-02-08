@@ -12,9 +12,8 @@ const Html = ({ content, styles, state }) => (
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
         rel="stylesheet"
       />
-      <head dangerouslySetInnerHTML={{__html: styles}}/>
+      <head dangerouslySetInnerHTML={{ __html: styles }} />
 
-      <script src="client.bundle.js" defer></script>
       <script
         dangerouslySetInnerHTML={{
           __html: `window.__APOLLO_STATE__=${JSON.stringify(state).replace(
@@ -23,6 +22,8 @@ const Html = ({ content, styles, state }) => (
           )}`,
         }}
       />
+
+      <script src="client.bundle.js" defer></script>
     </head>
     <body>
       <div id="root" dangerouslySetInnerHTML={{ __html: content }} />

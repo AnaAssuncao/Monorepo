@@ -1,16 +1,19 @@
-import React from 'react'
+import React from "react";
+import { StaticRouter } from "react-router-dom/server";
+
 import {
   ApolloClient,
   createHttpLink,
   InMemoryCache,
   ApolloProvider,
 } from "@apollo/client";
-import fetch from 'cross-fetch';
-import Layout from "../Routes/Layout";
-import { StaticRouter } from "react-router-dom/server";
-import { ThemeProvider } from 'styled-components'
-import { Theme } from '../Style/Theme'
-import  GlobalStyle  from '../Style/Global'
+import fetch from "cross-fetch";
+import Layout from "routes/Layout";
+
+import { ThemeProvider } from "styled-components";
+/** monorepo-ui */
+import { Theme } from "@monorepo/monorepo-ui/lib/style/Theme";
+import GlobalStyle from "@monorepo/monorepo-ui/lib/style/Global";
 
 const createApolloClient = (req, res, next) => {
   res.apolloClient = new ApolloClient({
@@ -25,8 +28,8 @@ const createApolloClient = (req, res, next) => {
     }),
     cache: new InMemoryCache(),
   });
-  
-  const context = {}
+
+  const context = {};
 
   res.App = (
     <ApolloProvider client={res.apolloClient}>
@@ -38,6 +41,8 @@ const createApolloClient = (req, res, next) => {
       </StaticRouter>
     </ApolloProvider>
   );
+
+  console.log("< APP > ", res.ApolloClient, res.App);
 
   next();
 };

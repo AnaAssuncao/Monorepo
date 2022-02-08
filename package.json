@@ -1,24 +1,26 @@
 {
-  "name": "monorepo",
+  "name": "root",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "private": true,
-  "workspaces": {
-    "packages":[
-     "packages/*"
-    ],
-    "nohoist": [
-      "**/react",
-      "**/react-dom"
-    ]
-  },
-  "keywords": [],
-  "author": "",
+  "workspaces": [
+    "packages/*"
+  ],
   "license": "ISC",
   "scripts": {
     "build": "lerna exec --parallel -- babel --root-mode upward src -d lib --ignore **/*.stories.js,**/*.spec.js",
-    "start": "lerna run start --parallel",
+    "start": "lerna bootstrap && lerna run start --parallel",
     "storybook": "lerna run storybook --parallel"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
+    "styled-components": "^5.3.3"
+  },
+  "resolutions": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
   }
 }
