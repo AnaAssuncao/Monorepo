@@ -1,5 +1,5 @@
 import React from "react";
-import {arrRoutes} from "../../Routes/Routes"
+// import {arrRoutes} from "../../Routes/Routes"
 import {
     Link
   } from "react-router-dom";
@@ -11,7 +11,7 @@ export default function NavBar (){
         <El.NavBarContainer> 
             <El.NavBarLogo>Monorepo</El.NavBarLogo>
             <El.NavBarMenu>
-                {arrRoutes.map(({name,path})=>{
+                {/* {arrRoutes.map(({name,path})=>{
                     return(
                         <El.NavBarItem key={name}>
                             <Link to={path}>
@@ -19,7 +19,7 @@ export default function NavBar (){
                             </Link>
                         </El.NavBarItem>
                     )
-                })}
+                })} */}
             </El.NavBarMenu>
         </El.NavBarContainer>
     )

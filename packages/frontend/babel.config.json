@@ -35,7 +35,8 @@
           "routes": "./src/Routes/",
           "server": "./src/Server/",
           "components": "./src/Components/",
-          "context": "./src/Context/"
+          "context": "./src/Context/",
+          "pages": "./src/Pages/"
         },
         "cwd": "babelrc"
     }]

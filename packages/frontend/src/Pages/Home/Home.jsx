@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 
-import Profile from '../../Components/Profile/Profile'
-import CompletedChallenge from '../../Components/CompletedChallenge/CompletedChallenge'
-import Countdown from '../../Components/Countdown/Countdown'
-import ChallengeBox from '../../Components/ChallengeBox/ChallengeBox'
-import ExperienceBar from '../../Components/ExperienceBar/ExperienceBar'
-import { ChallengesContext } from '../../Context/ChallengesContext'
+import Profile from 'components/Profile/Profile'
+import CompletedChallenge from 'components/CompletedChallenge/CompletedChallenge'
+import Countdown from 'components/Countdown/Countdown'
+import ChallengeBox from 'components/ChallengeBox/ChallengeBox'
+import ExperienceBar from 'components/ExperienceBar/ExperienceBar'
+import { ChallengesContext } from 'context/ChallengesContext'
 
 import * as El from './Home.style'
 
@@ -20,11 +20,13 @@ const CHALLENGES = gql`
   }
 `;
 
-export default function Home() {
+const Home = () => {
 
-  const {updateChallenges} = useContext(ChallengesContext)
+  const { loading, error, data } = useQuery(CHALLENGES);
+  // console.log('< FERTCH > ', loading, data)
+  if (loading) return null
 
-    const { loading, error, data } = useQuery(CHALLENGES);
+  // const {updateChallenges} = useContext(ChallengesContext)
 
     if (loading) {
     return (
@@ -41,11 +43,12 @@ export default function Home() {
       );
     }
   
-    updateChallenges(data.challenges)
+    // updateChallenges(data.challenges)
 
     return (
         <El.HomeContainer>
-          <ExperienceBar/>
+          HOME
+          {/* <ExperienceBar/>
           <El.HomeSection>
             <El.HomeBox>
               <Profile />
@@ -55,8 +58,10 @@ export default function Home() {
             <El.HomeBox>
               <ChallengeBox/> 
             </El.HomeBox>
-          </El.HomeSection>
+          </El.HomeSection> */}
         </El.HomeContainer>
     )
 
 }
+
+export default Home

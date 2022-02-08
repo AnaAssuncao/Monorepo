@@ -17,13 +17,14 @@ import { Theme } from "@monorepo/monorepo-ui/lib/style/Theme";
 import GlobalStyle from "@monorepo/monorepo-ui/lib/style/Global";
 
 const client = new ApolloClient({
+  cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
+  ssrForceFetchDelay: 100,
   link: createHttpLink({
     uri: "http://localhost:4000/",
     credentials: "same-origin",
     fetch: fetch,
   }),
   ssrForceFetchDelay: 100,
-  cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
 });
 
 const rootElement = document.getElementById("root");

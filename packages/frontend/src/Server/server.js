@@ -3,10 +3,10 @@ import React from "react";
 import { getDataFromTree } from "@apollo/client/react/ssr";
 import { renderToString } from "react-dom/server";
 
-import { ServerStyleSheet } from "styled-components";
-
-import Html from "./Html";
 import createApolloClient from "./createApolloClient";
+import Html from "./Html";
+
+import { ServerStyleSheet } from "styled-components";
 
 const app = express();
 
@@ -16,17 +16,19 @@ app.use(express.static("./build/client"));
 /** create apollo client */
 app.use(createApolloClient);
 
-app.use((req, res) => {
-  // Replace the TODO with this
+app.get("*", (req, res) => {
+  const APP = res.App;
   getDataFromTree()
     .then(() => {
       const sheet = new ServerStyleSheet();
       // Extract the entirety of the Apollo Client cache's current state
       const content = renderToString(sheet.collectStyles(res.App));
-      const initialState = res.apolloClient.extract(); // =client.extract();
+      const initialState = res.ApolloClient.extract(); // =client.extract();
       const styleTags = sheet.getStyleTags();
 
       // Add both the page content and the cache state to a top-level component
+      console.log(initialState);
+
       const html = (
         <Html content={content} styles={styleTags} state={initialState} />
       );
