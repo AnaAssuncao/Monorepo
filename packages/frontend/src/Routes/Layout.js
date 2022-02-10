@@ -22,9 +22,9 @@ export default () => {
       <NavBar />
 
       <Routes>
-        <Route path={"/"} component={<Home />} />
-        <Route path={"/desafios"} component={<Activities />} />
-        <Route path={"/beneficios"} component={<List />} />
+        <Route path={"/"} element={<Home />} />
+        <Route path={"/desafios"} element={<Activities />} />
+        <Route path={"/beneficios"} element={<List />} />
       </Routes>
 
       {/* <Routes>{buildRoutes()}</Routes> */}

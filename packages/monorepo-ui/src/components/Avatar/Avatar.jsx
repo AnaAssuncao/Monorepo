@@ -1,16 +1,13 @@
 import React from "react";
-// import { ThemeProvider } from "styled-components";
-// import { Theme } from "../../style/Theme.js";
-// import GlobalStyle from "../../style/Global.js";
+import ContainerTheme from "../ContainerTheme";
 
 import * as El from "./Avatar.style.js";
 
 const Avatar = ({ src, width }) => {
   return (
-    <>
+    <ContainerTheme>
       <El.Avatar src={src} width={width} />
-      Avatar
-    </>
+    </ContainerTheme>
   );
 };
 

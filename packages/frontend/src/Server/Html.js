@@ -23,7 +23,7 @@ const Html = ({ content, styles, state }) => (
         }}
       />
 
-      <script src="client.bundle.js" defer></script>
+      <script async src="client.bundle.js" defer></script>
     </head>
     <body>
       <div id="root" dangerouslySetInnerHTML={{ __html: content }} />

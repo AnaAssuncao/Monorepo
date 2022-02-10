@@ -1,6 +1,7 @@
-import React from 'react'
+import React from "react";
+import ContainerTheme from "../ContainerTheme";
 
-import * as El from './Button.style'
+import * as El from "./Button.style";
 
 export default function Button({
   children,
@@ -9,19 +10,20 @@ export default function Button({
   onClick,
   height,
   border,
-  isDisabled=false
-}){
-
+  isDisabled = false,
+}) {
   return (
-    <El.Button
-        onClick={()=>onClick()}
-        backgroundColor= {backgroundColor}
+    <ContainerTheme>
+      <El.Button
+        onClick={() => onClick()}
+        backgroundColor={backgroundColor}
         border={border}
         isDisabled={isDisabled}
         color={color}
         height={height}
-    >
-      {children}
-    </El.Button>
-  )
+      >
+        {children}
+      </El.Button>
+    </ContainerTheme>
+  );
 }
