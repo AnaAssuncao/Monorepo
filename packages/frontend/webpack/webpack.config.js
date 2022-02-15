@@ -14,18 +14,13 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        resolve: { extensions: [".js", ".jsx"] },
-        exclude: [/node_modules/, /.stories.js/],
+        resolve: { extensions: ["*", ".js", ".jsx"] },
+        exclude: [/node_modules/, /.stories.js/, /.test.js/],
         use: [
           {
-            loader: "babel-loader",
+            loader: "babel-loader?cacheDirectory",
           },
         ],
-      },
-      {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        loader: "graphql-tag/loader",
       },
     ],
   },
