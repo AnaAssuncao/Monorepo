@@ -1,14 +1,11 @@
 import React,{ useContext } from "react"
-import { ChallengesContext } from "../../Context/ChallengesContext"
-import Button from "../Button/Button"
+import { Link } from "react-router-dom";
+
+import { ChallengesContext } from "context/ChallengesContext"
+
+import Button from "@monorepo/monorepo-ui/lib/components/Button"
 
 import * as El from './Footer.style'
-// import {arrRoutes} from "../../Routes/Routes"
-import {
-    Link
-  } from "react-router-dom";
-
-  
 
 export default function Footer (){
 
@@ -21,16 +18,27 @@ export default function Footer (){
     return(
         <El.FooterContainer>
             <El.FooterMenu>
-                {/* {arrRoutes.map(({name,path})=>{
-                    return(
-                        <El.FooterItem key={name}>
-                            <Link to={path}>
-                                <El.FooterText>{name}</El.FooterText>
-                            </Link>
-                        </El.FooterItem>
-                    )
-                })} */}
+
+                <El.FooterItem key={"home"}>
+                    <Link to={"/"}>
+                        <El.FooterText>Home</El.FooterText>
+                    </Link>
+                </El.FooterItem>
+
+                <El.FooterItem key={"desafios"}>
+                    <Link to={"/desafios"}>
+                        <El.FooterText>Desafios</El.FooterText>
+                    </Link>
+                </El.FooterItem>
+                
+                <El.FooterItem key={"beneficios"}>
+                    <Link to={"/beneficios"}>
+                        <El.FooterText>Benefícios</El.FooterText>
+                    </Link>
+                </El.FooterItem>
+
             </El.FooterMenu>
+
             <El.FooterButton>
                 <Button 
                     color = "title"
@@ -42,6 +50,7 @@ export default function Footer (){
                         Limpar Dados
                 </Button>
             </El.FooterButton>
+
         </El.FooterContainer>
     )
 

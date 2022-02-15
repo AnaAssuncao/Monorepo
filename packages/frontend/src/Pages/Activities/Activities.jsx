@@ -1,5 +1,6 @@
-import React from "react";
-import { useQuery, gql } from "@apollo/client";
+import React, { useContext } from "react";
+
+import { ChallengesContext } from 'context/ChallengesContext'
 
 import * as El from './Activities.style'
 
@@ -7,34 +8,24 @@ const types ={
   Body:"corpo"
 }
 
-const CHALLENGES = gql`
-  query Query {
-    challenges{
-      type
-      description
-      amount
-    }
-  }
-`;
-
 export default function Activities() {
-  const { loading, error, data } = useQuery(CHALLENGES);
+  const { dataChallenges } = useContext(ChallengesContext)
+  const { loading, error, data } = dataChallenges
 
-  if (loading) {
-  return (
-    <El.ActivitiesContainer>
-       <p>Loading...</p>
-    </El.ActivitiesContainer>
-  )}
-  
-  if (error) {
-
+    if (loading) {
     return (
-      <El.ActivitiesContainer>
-      <p>Erro :( </p>
-    </El.ActivitiesContainer>
-    );
-  }
+      <El.HomeContainer>
+         <p>Loading...</p>
+      </El.HomeContainer>
+    )}
+    
+    if (error) {
+      return (
+        <El.HomeContainer>
+        <p>Erro :( </p>
+      </El.HomeContainer>
+      );
+    }
 
   const listActivities = data.challenges
 

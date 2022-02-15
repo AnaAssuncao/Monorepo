@@ -1,6 +1,6 @@
 import React,{ useContext } from "react"
-import { ChallengesContext } from "../../Context/ChallengesContext"
-import Button from '../Button/Button'
+import { ChallengesContext } from "context/ChallengesContext"
+import Button from '@monorepo/monorepo-ui/lib/components/Button'
 
 import * as El from './LevelUpModal.style'
 

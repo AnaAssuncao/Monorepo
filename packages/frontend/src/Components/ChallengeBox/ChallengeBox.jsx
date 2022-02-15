@@ -1,7 +1,9 @@
 import React,{useContext} from 'react'
-import {ChallengesContext} from '../../Context/ChallengesContext'
-import {CountdownContext} from '../../Context/CountdownContext'
-import Button from '../Button/Button'
+
+import {ChallengesContext} from 'context/ChallengesContext'
+import {CountdownContext} from 'context/CountdownContext'
+
+import Button from '@monorepo/monorepo-ui/lib/components/Button'
 
 import * as El from './ChallengeBox.style'
 
@@ -19,16 +21,18 @@ export default function ChallengeBox(){
     }
 
    return(
-       <El.ChallengeBoxContainer> 
+    <El.ChallengeBoxContainer> 
         {        
             activeChallenge?
             (
                  <El.ChallengeBoxActive>
                      <El.ChallengeBoxTitle>Ganhe {activeChallenge.amount}</El.ChallengeBoxTitle>
+
                      <El.ChallengeBoxMain>
                          <El.ChallengeBoxSubtitle>Novo Desafio</El.ChallengeBoxSubtitle>
                          <El.ChallengeBoxText>{activeChallenge.description}</El.ChallengeBoxText>
                      </El.ChallengeBoxMain>
+                     
                      <El.ChallengeBoxButtons>
                          <Button 
                                 color = "white"
@@ -46,6 +50,7 @@ export default function ChallengeBox(){
                             onClick={handleChallengeSucceeded}
                          >Completei</Button>
                      </El.ChallengeBoxButtons>
+                     
                  </El.ChallengeBoxActive>
             ):(
              <El.ChallengeBoxNotActive>
@@ -55,6 +60,6 @@ export default function ChallengeBox(){
              </El.ChallengeBoxNotActive>
             )
         }    
-        </El.ChallengeBoxContainer>
+    </El.ChallengeBoxContainer>
    ) 
 }

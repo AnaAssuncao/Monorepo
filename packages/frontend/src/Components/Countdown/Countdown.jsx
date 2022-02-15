@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
-import { CountdownContext } from '../../Context/CountdownContext';
-import Button from '../Button/Button'
+
+import { CountdownContext } from 'context/CountdownContext';
+
+import Button from '@monorepo/monorepo-ui/lib/components/Button'
+import Timer from '@monorepo/monorepo-ui/lib/components/Timer'
 
 import * as El from './Countdown.style'
 
@@ -12,17 +15,11 @@ export default function Countdown(){
    
     return(
         <div>
-            <El.Countdown>
-                <El.CountdownTime>
-                    <El.CountdownNumber>{minuteLeft}</El.CountdownNumber>
-                    <El.CountdownNumber>{minuteRight}</El.CountdownNumber>
-                </El.CountdownTime>
-                <El.CountdownText>:</El.CountdownText>
-                <El.CountdownTime>
-                    <El.CountdownNumber>{secondLeft}</El.CountdownNumber>
-                    <El.CountdownNumber>{secondRight}</El.CountdownNumber>
-                </El.CountdownTime>
-            </El.Countdown>
+            <Timer 
+                minuteLeft={minuteLeft} 
+                minuteRight={minuteRight} 
+                secondLeft={secondLeft} 
+                secondRight={secondRight}/>
 
             {hasFinished ? ( 
                  <El.Countdown>              

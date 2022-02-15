@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
-import { ChallengesContext } from "../../Context/ChallengesContext"
+
+import { ChallengesContext } from "context/ChallengesContext"
 
 import * as El from './CompletedChallenge.style'
 

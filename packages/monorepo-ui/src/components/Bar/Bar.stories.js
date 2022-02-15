@@ -5,14 +5,13 @@ import Bar from "./Bar"
 export default {
   title: "Bar",
   component: Bar,
-  argTypes: { onClick: { action: "clicked" } }
 }
 
-const Template = (args) => <Bar {...args} />
+const Template = (args) => <div style={{width:"70%"}}> <Bar {...args} />  </div>
 
 export const Primary = Template.bind({})
 Primary.args = {
-  widht:60,
+  width:20,
   left:20,
   value:60
 }

@@ -13,7 +13,6 @@ export const ProfileImg = styled.img`
     height: 100px;
     margin-right:1.5rem;
     width: 100px;
-
 `
 
 export const ProfileName = styled.input`
@@ -25,7 +24,7 @@ export const ProfileName = styled.input`
 `
 
 export const ProfileLevel = styled.div`
+    color: ${(props) => props.theme.color.title};
     font-size:1rem;
     margin-top:0.5rem;
-    color: ${(props) => props.theme.color.title};
 `

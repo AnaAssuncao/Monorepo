@@ -1,5 +1,8 @@
 import React,{ useContext } from "react"
-import { ChallengesContext } from "../../Context/ChallengesContext"
+
+import { ChallengesContext } from "context/ChallengesContext"
+
+import Bar from '@monorepo/monorepo-ui/lib/components/Bar'
 
 import * as El from './ExperienceBar.style'
 
@@ -13,11 +16,9 @@ export default function ExperienceBar(){
             <El.ExperienceBarText>
                 0px
             </El.ExperienceBarText>
-            <El.ExperienceBarSlider>
-                <El.ExperienceBar width= {porcentToNextLevel}>
-                    <El.ExperienceBarCurrent left= {`${porcentToNextLevel}%`}>{currentExperience}px</ El.ExperienceBarCurrent>
-                </El.ExperienceBar>
-            </El.ExperienceBarSlider>
+
+            <Bar width= {porcentToNextLevel} left= {porcentToNextLevel} value={currentExperience} />
+
             <El.ExperienceBarText>
                 {experienceToNextLevel}px
             </El.ExperienceBarText>

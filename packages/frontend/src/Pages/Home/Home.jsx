@@ -1,32 +1,19 @@
-import React, { useContext, useEffect } from "react";
-import { useQuery, gql } from "@apollo/client";
+import React, { useContext } from "react";
 
-// import Profile from 'components/Profile/Profile'
-// import CompletedChallenge from 'components/CompletedChallenge/CompletedChallenge'
-// import Countdown from 'components/Countdown/Countdown'
-// import ChallengeBox from 'components/ChallengeBox/ChallengeBox'
-// import ExperienceBar from 'components/ExperienceBar/ExperienceBar'
-// import { ChallengesContext } from 'context/ChallengesContext'
+import Profile from 'components/Profile/Profile'
+import CompletedChallenge from 'components/CompletedChallenge/CompletedChallenge'
+import Countdown from 'components/Countdown/Countdown'
+import ChallengeBox from 'components/ChallengeBox/ChallengeBox'
+import ExperienceBar from 'components/ExperienceBar/ExperienceBar'
+
+import { ChallengesContext } from 'context/ChallengesContext'
 
 import * as El from './Home.style'
 
-const CHALLENGES = gql`
-  query Query {
-    challenges{
-      type
-      description
-      amount
-    }
-  }
-`;
-
 const Home = () => {
 
-  const { loading, error, data } = useQuery(CHALLENGES);
-  if (loading) return null
-  
-  console.log('< FERTCH > ', loading, data)
-  // const {updateChallenges} = useContext(ChallengesContext)
+  const { dataChallenges } = useContext(ChallengesContext)
+  const { loading, error, data } = dataChallenges
 
     if (loading) {
     return (
@@ -43,12 +30,11 @@ const Home = () => {
       );
     }
   
-    // updateChallenges(data.challenges)
+    console.log(data)
 
     return (
         <El.HomeContainer>
-          HOME
-          {/* <ExperienceBar/>
+          <ExperienceBar/>
           <El.HomeSection>
             <El.HomeBox>
               <Profile />
@@ -58,7 +44,7 @@ const Home = () => {
             <El.HomeBox>
               <ChallengeBox/> 
             </El.HomeBox>
-          </El.HomeSection> */}
+          </El.HomeSection>
         </El.HomeContainer>
     )
 

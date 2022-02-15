@@ -12,9 +12,9 @@ const Template = (args) => <Button {...args}> Teste       </Button>
 
 export const Primary = Template.bind({})
 Primary.args = {
-  onClick:console.log("clicou"),
-  color : "title",
   backgroundColor : "white",
+  border :0,
+  color : "title",
   height : 3,
-  border :0
+  onClick:console.log("clicou")
 }
