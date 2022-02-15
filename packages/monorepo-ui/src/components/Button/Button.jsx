@@ -18,7 +18,7 @@ export default function Button({
         onClick={() => onClick()}
         backgroundColor={backgroundColor}
         border={border}
-        isDisabled={isDisabled}
+        disabled={isDisabled}
         color={color}
         height={height}
       >

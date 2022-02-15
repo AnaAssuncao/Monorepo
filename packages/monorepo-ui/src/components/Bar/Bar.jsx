@@ -9,7 +9,7 @@ export default function Bar({ width, left, value }) {
     <ContainerTheme>
       <El.BarContainer>
         <El.Bar width={width}>
-          <El.BarValue left={left}>{value}</El.BarValue>
+          <El.BarValue left={left}>{value}px</El.BarValue>
         </El.Bar>
       </El.BarContainer>
     </ContainerTheme>

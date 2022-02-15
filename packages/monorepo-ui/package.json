@@ -6,11 +6,12 @@
   "license": "ISC",
   "private": false,
   "scripts": {
-    "start": "yarn components & yarn style",
-    "components": "babel src/components -d lib/components --ignore **/*.stories.js --verbose",
-    "style": "babel src/style -d lib/style --ignore **/*.stories.js --verbose",
     "build": "babel src/components -d lib/components --ignore **/*.stories.js --verbose",
-    "storybook": "start-storybook -p 6006"
+    "components": "babel src/components -d lib/components --ignore **/*.stories.js --verbose",
+    "start": "yarn components & yarn style",
+    "storybook": "start-storybook -p 6006",
+    "style": "babel src/style -d lib/style --ignore **/*.stories.js --verbose",
+    "test": "react-scripts test"
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -24,13 +25,16 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.2",
     "@storybook/addon-actions": "^6.4.18",
     "@storybook/addon-essentials": "^6.4.18",
     "@storybook/addon-links": "^6.4.18",
     "@storybook/react": "^6.4.18",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-styled-components": "^2.0.2",
-    "core-js": "^3.21.0"
+    "core-js": "^3.21.0",
+    "react-scripts":"5.0.0"
   },
   "peerDependencies": {
     "styled-components": ">= 3"

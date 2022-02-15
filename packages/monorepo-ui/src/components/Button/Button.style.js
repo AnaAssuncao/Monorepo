@@ -7,9 +7,7 @@ export const Button = styled.button`
     border:${(props) => props.border}px;
     border-radius: 5px;
     color: ${(props) => props.theme.color[props.color]};
-    cursor: ${(props) => props.isDisabled? "not-allowed" : "pointer"};
-    pointer-events: ${(props) => props.isDisabled && "none"};
-    disabled: ${(props) => props.isDisabled};
+    cursor: ${(props) => props.disabled? "not-allowed" : "pointer"};
     display: flex;
     font-weight: 600;
     font-size: 1rem;
