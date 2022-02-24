@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  monorepo:
+    container_name: monorepo-image
+    working_dir: /app
+    build:
+      context: ./
+      dockerfile: ./infra/dev/Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - '4000:4000'
+      - '3030:3030'
+    restart: always
