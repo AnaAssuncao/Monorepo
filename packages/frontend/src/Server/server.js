@@ -1,22 +1,22 @@
-import express from "express";
-import React from "react";
-import { getDataFromTree } from "@apollo/client/react/ssr";
-import { renderToString, renderToStaticMarkup } from "react-dom/server";
+import express from 'express';
+import React from 'react';
+import { getDataFromTree } from '@apollo/client/react/ssr';
+import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 
-import createApolloClient from "./createApolloClient";
-import Html from "./Html";
+import createApolloClient from './createApolloClient';
+import Html from './Html';
 
-import { ServerStyleSheet } from "styled-components";
+import { ServerStyleSheet } from 'styled-components';
 
 const app = express();
 
 // access everything from the folder directly
-app.use(express.static("./build/client"));
+app.use(express.static('./build/client'));
 
 /** create apollo client */
 app.use(createApolloClient);
 
-app.get("*", (req, res) => {
+app.get('*', (req, res) => {
   const APP = res.App;
 
   getDataFromTree(APP)
@@ -38,13 +38,13 @@ app.get("*", (req, res) => {
       res.end();
     })
     .catch((error) => {
-      console.warn("< GET DATA FROM TREE : ERROR > ", error);
+      console.warn('< GET DATA FROM TREE : ERROR > ', error);
       res.end();
     });
 });
 
-app.listen(3030, function () {
-  console.log("Servidor está ouvindo na porta 3030");
+app.listen(process.env.PORT_FRONTEND, function () {
+  console.log(`Servidor está ouvindo na porta ${process.env.PORT_FRONTEND}`);
 });
 
 // get request from html
