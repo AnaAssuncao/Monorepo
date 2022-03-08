@@ -8,7 +8,12 @@
   ],
   "license": "ISC",
   "scripts": {
-    "dev": "docker-compose up -d --build",
+    "----- DOCKER DEVELOPER -----": "",
+    "dev-start": "docker-compose up -d --build && docker ps && yarn dev-logs",
+    "dev-stop": "docker-compose stop && docker ps",
+    "dev-restart": "yarn dev-stop && yarn dev-start",
+    "dev-logs": "docker logs -f monorepo",
+    "----- DEVELOPER -----": "",
     "build": "lerna exec --parallel -- babel --root-mode upward src -d lib --ignore **/*.stories.js,**/*.spec.js",
     "start": "lerna bootstrap && lerna run start --parallel",
     "test": "lerna bootstrap && lerna run test --parallel",

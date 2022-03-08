@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   monorepo:
-    container_name: monorepo-image
+    container_name: monorepo
     working_dir: /app
     build:
       context: ./
