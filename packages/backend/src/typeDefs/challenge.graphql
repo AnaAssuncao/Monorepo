@@ -1,0 +1,10 @@
+type Challenge {
+  type: String
+  description: String
+  amount: String
+}
+
+type Benefit {
+  title: String
+  description: String
+}
