@@ -1,4 +1,4 @@
-export const challenges = [
+const challenges = [
     {
       type: "Body",
       description : "dance",
@@ -16,3 +16,4 @@ export const challenges = [
    }
   ];
 
+  export default challenges

@@ -1,7 +1,10 @@
 import { ApolloServer } from 'apollo-server'
-import schema from './schemas'
+import typeDefs from './typeDefs'
+import resolvers from './resolvers'
 
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({   
+  typeDefs: typeDefs,
+  resolvers });
 
 server.listen(process.env.PORT_BACKEND).then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);

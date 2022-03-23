@@ -1,4 +1,6 @@
-import { challenges,benefits }  from "./challenge"
+import challenges  from "./challenge"
+import benefits  from "./benefits"
+
 
 const resolvers ={
   Query: {

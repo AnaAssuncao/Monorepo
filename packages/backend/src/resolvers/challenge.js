@@ -1,5 +1,5 @@
-import { dataChallenges } from '../data/challenges'
-import { dataBenefits } from '../data/benefits'
+import dataChallenges from '../data/challenges'
 
-export const challenges= () => {return dataChallenges}
-export const benefits = () =>{return dataBenefits}
+export const challenges= () => dataChallenges
+
+export default challenges
