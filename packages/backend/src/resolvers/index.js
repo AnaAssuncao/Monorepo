@@ -1,7 +1,10 @@
-import challenge from "./challenge"
+import { challenges,benefits }  from "./challenge"
 
-export const resolve ={
+const resolvers ={
   Query: {
-  ...challenge
+    challenges,
+    benefits
   },
 }
+
+export default resolvers

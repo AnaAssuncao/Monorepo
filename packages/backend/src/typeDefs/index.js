@@ -1,14 +1,16 @@
 import { gql } from 'apollo-server'
-import challenges from "./challenges"
+import Challenge from "./challenge.graphql"
 
 const graphqlTypeDefs =  gql`
   type Query {
-    challenges: [challenge]
-    benefits: [benefit]
+    challenges: [Challenge]
+    benefits: [Benefit]
   }
 `
 
-export const typeDefs = [
+const typeDefs = [
   graphqlTypeDefs,
-  challenges,
+  Challenge
 ]
+
+export default typeDefs

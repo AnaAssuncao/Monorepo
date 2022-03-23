@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-
   "scripts": {
-    "start": "node src/index.js"
+    "start": "babel-node src/index.js",
+    "build": "babel src -s -D -d dist"
   },
   "dependencies": {
+    "@babel/cli": "^7.17.6",
     "@babel/core": "^7.16.7",
+    "@babel/node": "7.16.8",
     "@babel/preset-env": "^7.16.11",
     "@babel/plugin-proposal-optional-chaining": "^7.16.7",
     "apollo-server": "^3.6.2",
