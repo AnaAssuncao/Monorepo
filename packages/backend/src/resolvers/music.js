@@ -1,10 +1,8 @@
-const music = async (parent, { id }, { dataSources }, info) => {
+const music = async (parent, { artist,title }, { dataSources }, info) => {
     const { musicAPI } = dataSources
-    // info.cacheControl.setCacheHint({ maxAge: 0, scope: 'PUBLIC' })
     try {
-      return await musicAPI.getMusic()
+      return await musicAPI.getMusic(artist,title)
     } catch(error) {
-      console.log(error)
       return { error: "No lyrics found"}
     }
   }

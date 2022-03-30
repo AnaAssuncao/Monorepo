@@ -6,7 +6,7 @@ const graphqlTypeDefs =  gql`
   type Query {
     challenges: [Challenge]
     benefits: [Benefit]
-    music: [Music]
+    music(artist:String, title:String): [Music]
   }
 `
 
