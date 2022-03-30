@@ -15,38 +15,39 @@ const Home = () => {
   const { dataChallenges } = useContext(ChallengesContext)
   const { loading, error, data } = dataChallenges
 
-    if (loading) {
+  if (loading) {
     return (
       <El.HomeContainer>
-         <p>Loading...</p>
+        <p>Loading...</p>
       </El.HomeContainer>
-    )}
-    
-    if (error) {
-      return (
-        <El.HomeContainer>
+    )
+  }
+
+  if (error) {
+    return (
+      <El.HomeContainer>
         <p>Erro :( </p>
       </El.HomeContainer>
-      );
-    }
-  
-    console.log(data)
+    );
+  }
 
-    return (
-        <El.HomeContainer>
-          <ExperienceBar/>
-          <El.HomeSection>
-            <El.HomeBox>
-              <Profile />
-              <CompletedChallenge />
-              <Countdown />
-            </El.HomeBox>
-            <El.HomeBox>
-              <ChallengeBox/> 
-            </El.HomeBox>
-          </El.HomeSection>
-        </El.HomeContainer>
-    )
+  // console.log(data)
+
+  return (
+    <El.HomeContainer>
+      <ExperienceBar />
+      <El.HomeSection>
+        <El.HomeBox>
+          <Profile />
+          <CompletedChallenge />
+          <Countdown />
+        </El.HomeBox>
+        <El.HomeBox>
+          <ChallengeBox />
+        </El.HomeBox>
+      </El.HomeSection>
+    </El.HomeContainer>
+  )
 
 }
 
