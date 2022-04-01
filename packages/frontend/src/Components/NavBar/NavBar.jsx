@@ -30,8 +30,8 @@ export default function NavBar() {
                     </Link>
                 </El.NavBarItem>
 
-                <El.NavBarItem key={"lyrius"}>
-                    <Link to={"/lyrius"}>
+                <El.NavBarItem key={"lyrics"}>
+                    <Link to={"/lyrics"}>
                         <El.NavBarText>Letra Música</El.NavBarText>
                     </Link>
                 </El.NavBarItem>

@@ -13,7 +13,7 @@ import * as El from './Home.style'
 const Home = () => {
 
   const { dataChallenges } = useContext(ChallengesContext)
-  const { loading, error, data } = dataChallenges
+  const { loading, error } = dataChallenges
 
   if (loading) {
     return (
@@ -30,8 +30,6 @@ const Home = () => {
       </El.HomeContainer>
     );
   }
-
-  // console.log(data)
 
   return (
     <El.HomeContainer>

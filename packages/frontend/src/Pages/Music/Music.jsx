@@ -1,31 +1,33 @@
 import React, { useState } from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, gql, NetworkStatus } from "@apollo/client";
 import SearchMusic from "components/SearchMusic/SearchMusic";
+import { lineBreak } from "utils/fixText"
 
 import * as El from './Music.style'
 
 const MUSIC = gql`
   query Query ($artist:String, $title:String) {
-    music (artist:$artist,title:$title){
+    lyrics(artist:$artist,title:$title){
       lyrics
     }
   }
 `;
 
 export default function Music() {
-  const [objLyrics, setObjLyrics] = useState({ artist: 'ColdpLay', nameMusic: 'clocks' })
+  const [objLyrics, setObjLyrics] = useState({ artist: 'Coldplay', title: 'Clocks' })
 
-  const { loading, error, data } = useQuery(MUSIC, {
+  const { loading, error, data, refetch, networkStatus } = useQuery(MUSIC, {
+    notifyOnNetworkStatusChange: true,
     variables: {
       artist: objLyrics.artist,
-      title: objLyrics.nameMusic
+      title: objLyrics.title
     }
   });
 
-  if (loading) {
+  if (loading || networkStatus === NetworkStatus.refetch) {
     return (
       <El.MusicContainer>
-        <p>Loading...</p>
+        <p>Carregando...</p>
       </El.MusicContainer>
     )
   }
@@ -38,22 +40,24 @@ export default function Music() {
     );
   }
 
-  const lyrics = data.lyrics
-  const errorLyrics = data.error
+  const lyrics = data.lyrics.lyrics
 
   const handleSendMusic = (valueArtist, valueNameMusic) => {
-    setObjLyrics({ artist: valueArtist, nameMusic: valueNameMusic })
+    refetch({ artist: valueArtist, title: valueNameMusic })
+    setObjLyrics({ artist: valueArtist, title: valueNameMusic })
   }
 
   return (
     <El.MusicContainer>
-      <El.Music>
-        <SearchMusic handleSendMusic={handleSendMusic} />
-        <El.LyricsContainer>
-          {lyrics && (<div>{lyrics}</div>)}
-          {errorLyrics && (<div>Busque novamente</div>)}
-        </El.LyricsContainer>
-      </El.Music>
+      <SearchMusic handleSendMusic={handleSendMusic} />
+      <El.LyricsContainer>
+        <El.Artist>{objLyrics.artist}</El.Artist>
+        <El.Title>{objLyrics.title}</El.Title>
+
+        {lyrics && (<div>{lineBreak(lyrics)}</div>)}
+
+        {lyrics === null && (<p>Infelizmente não encontramos a letra. Busque uma nova música.</p>)}
+      </El.LyricsContainer>
     </El.MusicContainer >
   )
 }

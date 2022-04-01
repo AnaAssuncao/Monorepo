@@ -19,13 +19,17 @@ export default function SearchMusic({ handleSendMusic }) {
 
             <El.Input type="text" required name='artist' />
             <El.Input type="text" required name='music' />
-            <Button
-                type="submit"
-                color="white"
-                backgroundColor="blue"
-                height={5}
-                border={0}
-            >Buscar</Button>
+            <El.Button>
+                <Button
+                    type="submit"
+                    color="white"
+                    backgroundColor="blue"
+                    height={3}
+                    border={0}
+                    onClick={() => console.log("Buscar")}
+                >Buscar</Button>
+            </El.Button>
+
 
 
         </El.SearchMusicContainer>

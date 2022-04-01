@@ -26,7 +26,7 @@ export default () => {
             <Route path={"/"} element={<Home />} />
             <Route path={"/desafios"} element={<Activities />} />
             <Route path={"/beneficios"} element={<List />} />
-            <Route path={"/lyrius"} element={<Music />} />
+            <Route path={"/lyrics"} element={<Music />} />
           </Routes>
 
           <Footer />

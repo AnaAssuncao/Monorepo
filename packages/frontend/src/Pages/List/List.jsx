@@ -24,7 +24,6 @@ export default function List() {
   }
 
   if (error) {
-    console.log(error.message)
     return (
       <El.ListContainer>
         <p>Erro :( </p>

@@ -37,8 +37,8 @@ export default function Footer() {
                     </Link>
                 </El.FooterItem>
 
-                <El.FooterItem key={"lyrius"}>
-                    <Link to={"/lyrius"}>
+                <El.FooterItem key={"lyrics"}>
+                    <Link to={"/lyrics"}>
                         <El.FooterText>Letra Música</El.FooterText>
                     </Link>
                 </El.FooterItem>
