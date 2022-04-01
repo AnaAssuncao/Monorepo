@@ -1,12 +1,12 @@
 import challenges  from "./challenge"
 import benefits  from "./benefits"
-import music from './music'
+import lyrics from './lyrics'
 
 const resolvers ={
   Query: {
     challenges,
     benefits,
-    music
+    lyrics
   },
 }
 

@@ -1,15 +1,13 @@
 import { ApolloServer } from 'apollo-server'
 import typeDefs from './typeDefs'
 import resolvers from './resolvers'
-import Music from './data/music'
-
-console.log(resolvers)
+import Lyrics from './data/lyrics'
 
 const server = new ApolloServer({   
   typeDefs: typeDefs,
   resolvers,
   dataSources: () => ({
-    musicAPI: new Music(),
+    lyricsAPI: new Lyrics(),
   }), });
 
 server.listen(process.env.PORT_BACKEND).then(({ url }) => {
