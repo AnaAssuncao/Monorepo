@@ -36,7 +36,8 @@
           "server": "./src/Server/",
           "components": "./src/Components/",
           "context": "./src/Context/",
-          "pages": "./src/Pages/"
+          "pages": "./src/Pages/",
+          "utils":"./src/utils/"
         },
         "cwd": "babelrc"
     }]

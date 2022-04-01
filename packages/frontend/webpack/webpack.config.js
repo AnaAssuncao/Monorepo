@@ -1,4 +1,5 @@
 const path = require("path");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   name: "client",
@@ -38,6 +39,9 @@ module.exports = {
   //     }
   //   }
   // },
-  // plugins: [
-  // ]
+  plugins: [
+    new Dotenv({
+      path: '../../../infra/dev/.env'
+    })
+  ]
 };
