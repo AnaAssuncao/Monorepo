@@ -41,7 +41,7 @@ module.exports = {
   // },
   plugins: [
     new Dotenv({
-      path: '../../../infra/dev/.env'
+      path: '../../infra/dev/.env'
     })
   ]
 };
