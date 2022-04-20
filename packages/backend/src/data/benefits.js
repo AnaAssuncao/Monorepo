@@ -1,4 +1,4 @@
-module.exports = [
+const benefits = [
     {
       title:"Gerenciar e controlar seu tempo",
       description:"Você vai assumir o controle do seu tempo. Desse modo, caso alguém se aproxime e queira conversar no meio de um pomodoro, use a seguinte abordagem: informe a pessoa que você está no meio de uma tarefa, porém não deixe de negociar e programar um momento em que estará pronto para ajudar. Então, quando estiver livre, chame a pessoa para voltar e conversar."
@@ -25,3 +25,5 @@ module.exports = [
     }
       
   ]
+
+  export default benefits

@@ -1,7 +1,13 @@
-import challenge from "./challenge"
+import challenges  from "./challenge"
+import benefits  from "./benefits"
+import lyrics from './lyrics'
 
-export const resolve ={
+const resolvers ={
   Query: {
-  ...challenge
+    challenges,
+    benefits,
+    lyrics
   },
 }
+
+export default resolvers

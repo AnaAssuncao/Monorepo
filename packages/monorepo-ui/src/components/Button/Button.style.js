@@ -13,6 +13,7 @@ export const Button = styled.button`
     font-size: 1rem;
     justify-content: center;
     height: ${(props) => props.height}rem;
+    padding: 10px;
     width: 100%;
 
     &:hover{

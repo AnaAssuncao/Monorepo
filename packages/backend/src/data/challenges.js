@@ -1,4 +1,4 @@
-module.exports = [
+const challenges = [
     {
       type: "Body",
       description : "dance",
@@ -16,3 +16,4 @@ module.exports = [
    }
   ];
 
+  export default challenges

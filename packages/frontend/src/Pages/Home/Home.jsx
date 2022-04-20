@@ -13,40 +13,39 @@ import * as El from './Home.style'
 const Home = () => {
 
   const { dataChallenges } = useContext(ChallengesContext)
-  const { loading, error, data } = dataChallenges
+  const { loading, error } = dataChallenges
 
-    if (loading) {
+  if (loading) {
     return (
       <El.HomeContainer>
-         <p>Loading...</p>
+        <p>Loading...</p>
       </El.HomeContainer>
-    )}
-    
-    if (error) {
-      return (
-        <El.HomeContainer>
+    )
+  }
+
+  if (error) {
+    return (
+      <El.HomeContainer>
         <p>Erro :( </p>
       </El.HomeContainer>
-      );
-    }
-  
-    console.log(data)
+    );
+  }
 
-    return (
-        <El.HomeContainer>
-          <ExperienceBar/>
-          <El.HomeSection>
-            <El.HomeBox>
-              <Profile />
-              <CompletedChallenge />
-              <Countdown />
-            </El.HomeBox>
-            <El.HomeBox>
-              <ChallengeBox/> 
-            </El.HomeBox>
-          </El.HomeSection>
-        </El.HomeContainer>
-    )
+  return (
+    <El.HomeContainer>
+      <ExperienceBar />
+      <El.HomeSection>
+        <El.HomeBox>
+          <Profile />
+          <CompletedChallenge />
+          <Countdown />
+        </El.HomeBox>
+        <El.HomeBox>
+          <ChallengeBox />
+        </El.HomeBox>
+      </El.HomeSection>
+    </El.HomeContainer>
+  )
 
 }
 
