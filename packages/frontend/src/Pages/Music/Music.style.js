@@ -15,20 +15,35 @@ export const Music = styled.div`
 `
 
 export const LyricsContainer = styled.div`
-  align-items:center;
   background-color: ${(props) => props.theme.color.white};
+  border-radius:16px;
   display: flex;
   flex-direction:column;
   height:80%;
   padding: 50px ;
   overflow: auto;
-  width:80%;
+  width:54%;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    background: ${(props) => props.theme.color.gray};
+  }
+
 `
 
-export const Artist = styled.h2`
+export const  Title = styled.h2`
   color: ${(props) => props.theme.color.title};
+  font-size: 36px;
 `
 
-export const Title = styled.h4`
-  margin:16px;
+export const Artist = styled.h4`
+  margin:16px 0;
+`
+
+export const Label = styled.h4`
+  font-size:24px;
 `

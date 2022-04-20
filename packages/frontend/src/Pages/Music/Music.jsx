@@ -27,7 +27,10 @@ export default function Music() {
   if (loading || networkStatus === NetworkStatus.refetch) {
     return (
       <El.MusicContainer>
-        <p>Carregando...</p>
+        <SearchMusic handleSendMusic={handleSendMusic} />
+        <El.LyricsContainer>
+          <El.Label>Carregando a letra da música...</El.Label>
+        </El.LyricsContainer>
       </El.MusicContainer>
     )
   }
@@ -35,7 +38,10 @@ export default function Music() {
   if (error) {
     return (
       <El.MusicContainer>
-        <p>Erro :( </p>
+        <SearchMusic handleSendMusic={handleSendMusic} />
+        <El.LyricsContainer>
+          <El.Label>Erro na busca... :/</El.Label>
+        </El.LyricsContainer>
       </El.MusicContainer>
     );
   }
@@ -51,12 +57,14 @@ export default function Music() {
     <El.MusicContainer>
       <SearchMusic handleSendMusic={handleSendMusic} />
       <El.LyricsContainer>
-        <El.Artist>{objLyrics.artist}</El.Artist>
-        <El.Title>{objLyrics.title}</El.Title>
+        {lyrics && (
+          <div>
+            <El.Title>{objLyrics.title}</El.Title>
+            <El.Artist>{objLyrics.artist}</El.Artist>
+            {lineBreak(lyrics)}
+          </div>)}
 
-        {lyrics && (<div>{lineBreak(lyrics)}</div>)}
-
-        {lyrics === null && (<p>Infelizmente não encontramos a letra. Busque uma nova música.</p>)}
+        {lyrics === null && (<El.Label>Infelizmente não encontramos a letra. Busque uma nova música.</El.Label>)}
       </El.LyricsContainer>
     </El.MusicContainer >
   )

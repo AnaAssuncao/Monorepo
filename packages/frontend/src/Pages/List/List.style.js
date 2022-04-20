@@ -7,18 +7,28 @@ export const ListContainer = styled.div`
   flex-direction:column;
   justify-content: center;
   height:85%;
-  padding-top:2rem;
+  padding-top:32px;
 `
 
 export const List= styled.ul`
   align-items:center;
   background-color: ${(props) => props.theme.color.white};
+  border-radius:16px;
   display: flex;
   flex-direction:column;
   height:90%;
   padding: 50px 0;
   width:80%;
   overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    background: ${(props) => props.theme.color.gray};
+  }
 `
 
 export const ListItem= styled.li`
