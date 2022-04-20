@@ -17,8 +17,8 @@ export default function SearchMusic({ handleSendMusic }) {
     return (
         <El.SearchMusicContainer ref={form} onSubmit={sendMusic}>
 
-            <El.Input type="text" required name='artist' />
-            <El.Input type="text" required name='music' />
+            <El.Input type="text" required name='artist' placeholder="Artista" />
+            <El.Input type="text" required name='music' placeholder="Música" />
             <El.Button>
                 <Button
                     type="submit"
@@ -29,8 +29,6 @@ export default function SearchMusic({ handleSendMusic }) {
                     onClick={() => console.log("Buscar")}
                 >Buscar</Button>
             </El.Button>
-
-
 
         </El.SearchMusicContainer>
     )
