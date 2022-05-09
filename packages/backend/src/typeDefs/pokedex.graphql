@@ -1,0 +1,4 @@
+type Pokedex{
+  name: String
+  url: String
+}
