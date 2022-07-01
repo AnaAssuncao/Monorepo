@@ -7,14 +7,14 @@ class Pokedex extends RESTDataSource {
   }
 
   async getListPokemon(limit=20,offset=20) {
+    
     const response = await this.get(`?limit=${limit}&offset=${offset}`);
-
+    console.log("<response>",response)
     const listPokemon = await Promise.all( response.results.map(async (pokemonInfo) => {
       const pokemon = await this.getPokemon(pokemonInfo.name)
-      pokemonInfo.image = pokemon.sprites.front_default
+      pokemonInfo.image = pokemon.image
       return pokemonInfo
     }))
-
     return listPokemon
   }
 

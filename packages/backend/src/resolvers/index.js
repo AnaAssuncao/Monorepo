@@ -6,11 +6,11 @@ import pokemon from './pokemon'
 
 const resolvers ={
   Query: {
-    challenges,
-    benefits,
-    lyrics,
-    listPokemon,
-    pokemon
+      challenges,
+      benefits,
+      lyrics,
+      listPokemon,
+      pokemon
   }
 }
 
