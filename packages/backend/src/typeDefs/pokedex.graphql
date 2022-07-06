@@ -2,6 +2,7 @@ type ListPokemon{
   name: String
   url: String
   image: String
+  type: String
 }
 
 type Pokemon{

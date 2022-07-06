@@ -11,6 +11,7 @@ class Pokedex extends RESTDataSource {
     const listPokemon = await Promise.all( response.results.map(async (pokemonInfo) => {
       const pokemon = await this.getPokemon(pokemonInfo.name)
       pokemonInfo.image = pokemon.image
+      pokemonInfo.type=pokemon.type
       return pokemonInfo
     }))
     return listPokemon
