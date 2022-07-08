@@ -7,6 +7,7 @@ export const ListContainer = styled.div`
   flex-direction:column;
   justify-content: center;
   padding-top:32px;
+  overflow: auto;
 `
 
 export const List= styled.ul`
@@ -15,10 +16,9 @@ export const List= styled.ul`
   border-radius:16px;
   display: flex;
   flex-wrap: wrap;
-  height:90%;
+  height: 100%;
   padding: 50px 0;
   width:80%;
-  overflow: auto;
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -57,6 +57,10 @@ export const ListImage= styled.img`
 `
 
 export const ListButton= styled.div`
-margin-top:32px;
-  width: 200px;
+  display:flex;
+`
+
+export const ContainerButton= styled.div`
+  width: 150px; 
+  margin:16px;
 `

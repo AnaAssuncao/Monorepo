@@ -6,7 +6,7 @@ class Pokedex extends RESTDataSource {
     this.baseURL ="https://pokeapi.co/api/v2/pokemon"
   }
 
-  async getListPokemon(limit=20,offset=20) {
+  async getListPokemon(limit=20,offset=0) {
     const response = await this.get(`?limit=${limit}&offset=${offset}`);
     const listPokemon = await Promise.all( response.results.map(async (pokemonInfo) => {
       const pokemon = await this.getPokemon(pokemonInfo.name)

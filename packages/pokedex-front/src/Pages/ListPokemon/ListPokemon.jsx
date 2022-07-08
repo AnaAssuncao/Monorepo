@@ -1,13 +1,13 @@
-import React from "react";
-import { useQuery, gql } from "@apollo/client";
+import React, { useState } from "react";
+import { useQuery, gql, NetworkStatus } from "@apollo/client";
 
 import Button from '@monorepo/monorepo-ui/lib/components/Button'
 
 import * as El from './ListPokemon.style'
 
 const LISTPOKEMON = gql`
-  query ListPokemon {
-    listPokemon {
+  query ListPokemon($offset: Int, $limit: Int) {
+    listPokemon(offset: $offset, limit: $limit) {
       name
       image
       url
@@ -17,9 +17,17 @@ const LISTPOKEMON = gql`
 `;
 
 export default function List() {
-  const { loading, error, data } = useQuery(LISTPOKEMON);
+  const limit = 20
+  const [page, setPage] = useState(0)
+  const { loading, error, data, refetch, networkStatus } = useQuery(LISTPOKEMON, {
+    notifyOnNetworkStatusChange: true,
+    variables: {
+      offset: 0,
+      limit: 20
+    }
+  })
 
-  if (loading) {
+  if (loading || networkStatus === NetworkStatus.refetch) {
     return (
       <El.ListContainer>
         <p>Loading...</p>
@@ -37,6 +45,13 @@ export default function List() {
 
   const listPokemon = data.listPokemon
 
+  const changePage = (newPage) => {
+    const newNumberPage = Number(page) + Number(newPage)
+
+    refetch({ offset: limit * newNumberPage })
+    setPage(newNumberPage)
+  }
+
   return (
     <El.ListContainer>
       <El.List>
@@ -51,16 +66,29 @@ export default function List() {
             )
           })
         }
+      </El.List>
 
-        <El.ListButton>
+      <El.ListButton>
+        {
+          page > 0 &&
+          <El.ContainerButton>
+            <Button
+              color="white"
+              backgroundColor="blue"
+              height={3}
+              onClick={() => changePage(-1)}
+            >Voltar</Button>
+          </El.ContainerButton>
+
+        }
+        <El.ContainerButton>
           <Button
             color="white"
             backgroundColor="blue"
             height={3}
-            onClick={() => console.log("bora funcionar")}
-          >Carregar mais</Button>
-        </El.ListButton>
-      </El.List>
+            onClick={() => changePage(1)}
+          >Proxima</Button></El.ContainerButton>
+      </El.ListButton>
 
     </El.ListContainer >
   )
