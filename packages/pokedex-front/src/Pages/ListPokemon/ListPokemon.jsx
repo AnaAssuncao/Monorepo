@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useQuery, gql, NetworkStatus } from "@apollo/client";
 
+import DetailsPokemon from 'components/DetailsPokemon/DetailsPokemon'
+
 import Button from '@monorepo/monorepo-ui/lib/components/Button'
 
 import * as El from './ListPokemon.style'
@@ -19,6 +21,8 @@ const LISTPOKEMON = gql`
 export default function List() {
   const limit = 20
   const [page, setPage] = useState(0)
+  const [details, setDetails] = useState({ open: false, name: null })
+
   const { loading, error, data, refetch, networkStatus } = useQuery(LISTPOKEMON, {
     notifyOnNetworkStatusChange: true,
     variables: {
@@ -52,6 +56,25 @@ export default function List() {
     setPage(newNumberPage)
   }
 
+  const handleDetailsOpen = (name) => {
+    setDetails(
+      {
+        open: true,
+        name: name
+      }
+    )
+  }
+
+  const handleCloseDetails = () => {
+    setDetails(
+      {
+        open: false,
+        name: null
+      }
+    )
+  }
+
+
   return (
     <El.ListContainer>
       <El.List>
@@ -59,9 +82,12 @@ export default function List() {
           listPokemon.map(({ name, image, type }) => {
 
             return (
-              <El.ListItem key={name} typePokemon={type} >
+              <El.ListItem key={name} typePokemon={type} onClick={() => { handleDetailsOpen(name) }}>
+                <div>
+                  <El.ListTitle>{name.toUpperCase()}</El.ListTitle>
+                  <El.ListType>{type}</El.ListType>
+                </ div>
                 <El.ListImage src={image} />
-                <El.ListTitle>{name}</El.ListTitle>
               </El.ListItem>
             )
           })
@@ -89,6 +115,11 @@ export default function List() {
             onClick={() => changePage(1)}
           >Proxima</Button></El.ContainerButton>
       </El.ListButton>
+
+      {
+        details.open &&
+        <DetailsPokemon namePokemon={details.name} handleCloseDetails={handleCloseDetails} />
+      }
 
     </El.ListContainer >
   )

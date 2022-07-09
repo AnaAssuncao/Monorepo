@@ -12,13 +12,12 @@ export const ListContainer = styled.div`
 
 export const List= styled.ul`
   justify-content: center;
-  background-color: ${(props) => props.theme.color['black']};
+  background-color: ${(props) => props.theme.color.black};
   border-radius:16px;
   display: flex;
   flex-wrap: wrap;
   height: 100%;
   padding: 50px 0;
-  width:80%;
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -34,13 +33,13 @@ export const ListItem= styled.li`
   background-color:${(props) => props.theme.color.pokemon[props.typePokemon]};
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.25);
   border-radius:20px;
+  cursor:pointer;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding: 24px;
   margin: 16px;
-  height 250px;
-  width: 250px;
+  height 200px;
+  width: 350px;
 `
 
 export const ListTitle= styled.h2`
@@ -52,8 +51,16 @@ export const ListTitle= styled.h2`
   text-align: center;
 `
 
+export const ListType= styled.div`
+  color: ${(props) => props.theme.color.white};
+  background-color: #ffffff59;
+  border-radius:30px;
+  padding: 12px 16px;
+  width: fit-content;
+`
+
 export const ListImage= styled.img`
-  width: 200px;
+
 `
 
 export const ListButton= styled.div`

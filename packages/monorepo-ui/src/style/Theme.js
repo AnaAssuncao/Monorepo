@@ -12,10 +12,10 @@ export const Theme = {
     blueDark: "#4953b8",
     blueTwitter: "#2aa9e0",
     pokemon: {
-      normal: '#bfbc81',
+      normal: '#bfa681',
       fire: '#edb58b',
       water: '#6390F0',
-      electric: '#ffeb94',
+      electric: '#e9d738',
       grass: '#7AC74C',
       ice: '#96D9D6',
       fighting: '#C22E28',
