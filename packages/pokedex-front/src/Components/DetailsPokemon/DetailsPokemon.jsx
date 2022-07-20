@@ -58,7 +58,7 @@ export default function DetailsPokemon({ namePokemon, handleCloseDetails }) {
           <El.Banner typePokemon='normal'>
             <El.Title>Infelizmente não encontramos o pokémon {namePokemon}!</El.Title>
             <El.Title>Tente novamente!</El.Title>
-            <El.Back onClick={handleCloseDetails} typePokemon='dark'>Voltar</El.Back>
+            <El.BackButton onClick={handleCloseDetails} typePokemon='dark'>Voltar</El.BackButton>
           </El.Banner>
         </El.Container>
       </El.ModalMask>

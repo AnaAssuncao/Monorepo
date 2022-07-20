@@ -169,7 +169,7 @@ export const ContainerButton = styled.div`
 `
 
 export const BackButton  = styled.button`
-  background-color:${(props) => props.theme.color.white};
+  background-color: transparent;
   color:${(props) => props.theme.color.pokemon[props.typePokemon]};
   cursor: pointer;
   font-size: 16px;
