@@ -111,7 +111,7 @@ export default function DetailsPokemon({ namePokemon, handleCloseDetails }) {
             <El.AbilitiesContent>
               {
                 abilities.map(({ ability }) => {
-                  return <El.AbilitiesName> {ability.name}</El.AbilitiesName>
+                  return <El.AbilitiesName key={ability.name}> {ability.name}</El.AbilitiesName>
 
                 })
               }
@@ -127,7 +127,7 @@ export default function DetailsPokemon({ namePokemon, handleCloseDetails }) {
                 const lowerPercentage = (base_stat / 255) * 100
 
                 return (
-                  <El.StatsContent>
+                  <El.StatsContent key={stat.name}>
                     <El.StatsName> {stat.name}</El.StatsName>
                     <El.StatsProgress>
                       <El.BarContainer>

@@ -82,7 +82,7 @@ export const Details  = styled.div`
   justify-content: space-around;
 `
 
-export const DetailsContent  = styled.p`
+export const DetailsContent  = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
