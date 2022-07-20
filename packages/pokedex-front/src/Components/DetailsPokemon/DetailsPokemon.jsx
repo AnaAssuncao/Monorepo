@@ -35,17 +35,17 @@ const DETAILSPOKEMON = gql`
 export default function DetailsPokemon({ namePokemon, handleCloseDetails }) {
   const { loading, error, data } = useQuery(DETAILSPOKEMON, {
     variables: {
-      name: namePokemon
+      name: namePokemon.toLowerCase()
     }
   })
 
   if (loading) {
     return (
-      <El.ModalMask>
+      <El.ModalMask onClick={handleCloseDetails}>
         <El.Container>
-          <El.Content>
-            <p>CARREGANDO</p>
-          </El.Content>
+          <El.Banner typePokemon='normal'>
+            <El.Title>Carregando!</El.Title>
+          </El.Banner>
         </El.Container>
       </El.ModalMask>
     )
@@ -53,11 +53,13 @@ export default function DetailsPokemon({ namePokemon, handleCloseDetails }) {
 
   if (error) {
     return (
-      <El.ModalMask>
+      <El.ModalMask onClick={handleCloseDetails}>
         <El.Container>
-          <El.Content>
-            <p>Erro :( </p>
-          </El.Content>
+          <El.Banner typePokemon='normal'>
+            <El.Title>Infelizmente não encontramos o pokémon {namePokemon}!</El.Title>
+            <El.Title>Tente novamente!</El.Title>
+            <El.Back onClick={handleCloseDetails} typePokemon='dark'>Voltar</El.Back>
+          </El.Banner>
         </El.Container>
       </El.ModalMask>
     );
@@ -138,8 +140,9 @@ export default function DetailsPokemon({ namePokemon, handleCloseDetails }) {
               })
             }
           </El.Stats>
-
-          <El.Back onClick={handleCloseDetails} typePokemon={type}>Voltar</El.Back>
+          <El.ContainerButton>
+            <El.BackButton onClick={handleCloseDetails} typePokemon={type}>Voltar</El.BackButton>
+          </El.ContainerButton>
         </El.Content>
       </El.Container>
     </El.ModalMask>

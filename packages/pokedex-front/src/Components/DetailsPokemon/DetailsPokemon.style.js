@@ -161,9 +161,19 @@ export const StatsBar  = styled.div`
   width:${(props) => props.width}%;
 `
 
-export const Back  = styled.p`
+export const ContainerButton = styled.div`
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width:100%
+`
+
+export const BackButton  = styled.button`
+  background-color:${(props) => props.theme.color.white};
   color:${(props) => props.theme.color.pokemon[props.typePokemon]};
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
   margin: 16px;
   text-align: center
 `
