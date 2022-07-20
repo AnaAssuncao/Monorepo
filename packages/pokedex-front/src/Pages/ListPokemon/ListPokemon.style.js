@@ -9,15 +9,22 @@ export const ListContainer = styled.div`
   padding-top:32px;
   overflow: auto;
 `
+export const ListContent = styled.div`
+  align-items:center;
+  background-color: ${(props) => props.theme.color.background};
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  height: 95vh;
+`
 
 export const List= styled.ul`
   justify-content: center;
-  background-color: ${(props) => props.theme.color.black};
+  background-color: ${(props) => props.theme.color.background};
   border-radius:16px;
   display: flex;
   flex-wrap: wrap;
   height: 100%;
-  padding: 50px 0;
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -70,4 +77,9 @@ export const ListButton= styled.div`
 export const ContainerButton= styled.div`
   width: 150px; 
   margin:16px;
+`
+
+export const ListText= styled.p`
+  font-size:18px;
+  color: ${(props) => props.theme.color.text};
 `

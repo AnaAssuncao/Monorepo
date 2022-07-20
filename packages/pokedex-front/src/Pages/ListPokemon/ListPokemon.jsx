@@ -6,6 +6,7 @@ import DetailsPokemon from 'components/DetailsPokemon/DetailsPokemon'
 import Button from '@monorepo/monorepo-ui/lib/components/Button'
 
 import * as El from './ListPokemon.style'
+import SearchPokemon from "../../Components/SearchPokemon/SearchPokemon";
 
 const LISTPOKEMON = gql`
   query ListPokemon($offset: Int, $limit: Int) {
@@ -33,17 +34,17 @@ export default function List() {
 
   if (loading || networkStatus === NetworkStatus.refetch) {
     return (
-      <El.ListContainer>
-        <p>Loading...</p>
-      </El.ListContainer>
+      <El.ListContent>
+        <El.ListText>Carregando... </El.ListText>
+      </El.ListContent>
     )
   }
 
   if (error) {
     return (
-      <El.ListContainer>
-        <p>Erro :( </p>
-      </El.ListContainer>
+      <El.ListContent>
+        <El.ListText>Ops! Ocorreu um erro.</El.ListText>
+      </El.ListContent>
     );
   }
 
@@ -77,6 +78,8 @@ export default function List() {
 
   return (
     <El.ListContainer>
+      <SearchPokemon searchPokemon={handleDetailsOpen} />
+
       <El.List>
         {
           listPokemon.map(({ name, image, type }) => {
