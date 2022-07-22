@@ -31,6 +31,21 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              fallback: 'file-loader',
+              outputPath: '../client/imgs',
+              publicPath: '/imgs',
+              name: '[hash].[ext]'
+            }
+          }
+        ]
+      },
     ],
   },
   plugins: [],

@@ -10,9 +10,18 @@ export const NavBarContainer = styled.header`
     width:100%;
     z-index: 1;
 `
+export const NavBarContent = styled.header`
+    align-items: center;
+    display: flex;
+    justify-content: center;
+`
 
 export const NavBarLogo = styled.h1`
     color: ${(props) => props.theme.color.black};
     font-size:36px;
 `
 
+export const NavBarImg = styled.img`
+    width:32px;
+    margin-right: 12px;
+`
