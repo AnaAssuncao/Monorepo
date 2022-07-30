@@ -41,7 +41,7 @@ export const Banner = styled.div`
   border-radius:20px;
   display: flex;
   flex-direction: column;
-  height:30%;
+  height:200px;
   padding: 24px;
 
 `
