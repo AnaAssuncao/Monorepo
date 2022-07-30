@@ -4,8 +4,8 @@ import { useQuery, gql } from "@apollo/client";
 import * as El from './List.style'
 
 const BENEFITS = gql`
-  query Query {
-    benefits{
+  query Benefits {
+    benefits {
       title
       description
     }

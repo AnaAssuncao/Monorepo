@@ -1,0 +1,39 @@
+type ListPokemon{
+  name: String
+  url: String
+  image: String
+  type: String
+}
+
+type Pokemon{
+  name: String
+  image: String,
+  base_experience: String,
+  height: Int,
+  weight: Int,
+  type: String
+  abilities: [Abilities]
+  stats: [Stats] 
+}
+
+type Abilities {  
+  ability: Ability
+  is_hidden: Boolean,
+  slot: Int
+}
+
+type Ability{
+  name: String,
+  url: String
+}
+
+type Stats{
+  base_stat: Int,
+  effort: Int,
+  stat: Stat
+}
+
+type Stat{
+  name: String,
+  url: String
+}

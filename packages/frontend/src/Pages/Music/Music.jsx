@@ -6,8 +6,8 @@ import { lineBreak } from "utils/fixText"
 import * as El from './Music.style'
 
 const MUSIC = gql`
-  query Query ($artist:String, $title:String) {
-    lyrics(artist:$artist,title:$title){
+  query Lyrics($title: String, $artist: String) {
+    lyrics(title: $title, artist: $artist) {
       lyrics
     }
   }
