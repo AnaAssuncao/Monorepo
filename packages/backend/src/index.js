@@ -10,6 +10,6 @@ const server = new ApolloServer({
     lyricsAPI: new Lyrics(),
   }), });
 
-server.listen(process.env.PORT_BACKEND).then(({ url }) => {
+server.listen(process.env.PORT || process.env.PORT_BACKEND).then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
 });

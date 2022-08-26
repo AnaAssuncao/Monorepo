@@ -43,7 +43,7 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(process.env.PORT_FRONTEND, function () {
+app.listen(process.env.PORT || process.env.PORT_FRONTEND, function () {
   console.log(`Servidor está ouvindo na porta ${process.env.PORT_FRONTEND}`);
 });
 
