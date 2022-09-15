@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect, useCallback } from "react";
 import { useQuery, gql } from "@apollo/client";
 
 const CHALLENGES = gql`
-  query Query {
+  query Challenges {
     challenges {
       type
       description
